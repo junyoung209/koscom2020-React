@@ -25,7 +25,6 @@ function RootRouter() {
         setKeyword(e.target.value)
       };
     const handlingSector = (e) => {
-        console.log(e.target.value)
         setSector(e.target.value)
         window.open('/search/'+e.target.value, '_self')
     }
@@ -77,8 +76,6 @@ function RootRouter() {
                     })}/>
                     </div>
                 </div>
-                    {/* <PostsForm /> */}
-                    {/* <Posts /> */}
                 </Fragment>
                 </Route>
                 <Route path='/search/:tag' component={Tag} />
@@ -89,10 +86,7 @@ function RootRouter() {
                     <div><h2>.</h2></div><div><h1>.</h1></div>
                     <h1 className="mid"> 즐겨찾기 </h1>
                     <Post dataInformation={stockContext.stockData.filter(data => {
-                        // return data.nickname.indexOf(this.state.keyword) > -1
                         return data.favorite.includes("1")
-                            // data.stock_sector.toLowerCase().includes(keyword.toLowerCase())
-                        // case-insensitive method
                     })}/>
                     </div>
                 </div>

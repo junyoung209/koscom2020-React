@@ -5,10 +5,12 @@ import ss from './삼성.jpg';
 import Popup from 'reactjs-popup';
 import empty from './empty.png';
 import full from './full.png';
+import axios from 'axios';
 
 const url = 'http://54.180.87.156:5000/outputs?stock_code=';
 const url2 = 'http://54.180.87.156:5000/outputs_logo?stock_name=';
 const url3 = 'http://54.180.87.156:5000/outputs_pop?stock_code=';
+
 class Post extends React.Component {
   render() {
     const {dataInformation} = this.props;
@@ -38,7 +40,8 @@ class Post extends React.Component {
         </div>
         <div className="Post-caption">
           <strong>{ data.stock_name }</strong>({ data.stock_code })
-          { data.favorite === "0" ? <img className="heart" src={ empty }/> : <img className="heart" src={ full }/>} 
+          { data.favorite === "0" ? 
+          <img className="heart" src={ empty }/> : <img className="heart" src={ full }/>} 
         </div>
       <div className="Post-caption-tag">
       <Link to={`/search/${data.stock_sector}`}><strong>#{ data.stock_sector }</strong> </Link>
