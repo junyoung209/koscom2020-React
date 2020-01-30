@@ -13,15 +13,13 @@ function Tag(props) {
             <div className="container">
                 <h2 className="tag">#{ props.match.params.tag }</h2>
             <div className="exBody">
+                { props.match.params.tag === '상승중' || props.match.params.tag === '하락중' ? 
                 <List dataInformation={stockContext.stockData.filter(data => {
-                            return data.stock_sector.includes(props.match.params.tag)
-                            // case-insensitive method
-
-                            // return data.nickname.indexOf(this.state.keyword) > -1
-//                             return data.industry.toLowerCase().includes(this.props.match.params.tag.toLowerCase())
-//                             // case-insensitive method
-
-                        })}/>
+                    return data.delta.includes(props.match.params.tag)})}/> :
+                    <List dataInformation={stockContext.stockData.filter(data => {
+                        return data.stock_sector.includes(props.match.params.tag)})}/>}
+                {/* <List dataInformation={stockContext.stockData.filter(data => {
+                            return data.stock_sector.includes(props.match.params.tag)})}/> */}
 
             </div>
             </div>

@@ -10,6 +10,7 @@ import StockContext from '../../context/StockContext';
 //     )
 // }
 const url = 'http://54.180.87.156:5000/outputs?textID=';
+const url2 = 'http://54.180.87.156:5000/outputs_logo?stock_name=';
 
 class List extends React.Component {
   render() {
@@ -20,7 +21,7 @@ class List extends React.Component {
     <div className="_pbwg8">
         <div className="Post-user">
             <div className="Post-user-avatar">
-              <img src={ url + data.stock_code } alt={data.stock_name} />
+              <img src={ url2 + data.stock_name } alt={data.stock_name} />
             </div>
             <div className="Post-user-nickname">
               <span>{ data.stock_name }</span>

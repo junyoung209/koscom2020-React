@@ -16,13 +16,19 @@ const formStyle = {
 }
 
 function App() {
-
+  // const [user, setUser] = useState([]);
   const stockContext = useContext(StockContext);
-  // const [user, setUser] = useState(null);
-  // const authenticated = user != null;
-
-  // const login = ({ email, password }) => setUser(signIn({ email, password }));
-  // const logout = () => setUser(null);
+  // const signIn = (username, password) => {
+  //   setUser([
+  //     user, {
+  //       username: username,
+  //       password: password
+  //     }
+  //   ])
+  // };
+  // const signOut = () => {
+  //   setUser(null)
+  // }
 
   useEffect(() => {
     console.log('stockContext: ', stockContext);

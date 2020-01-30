@@ -4,7 +4,9 @@ import "./Post.css";
 import ss from './삼성.jpg';
 import Popup from 'reactjs-popup';
 
-const url = 'http://54.180.87.156:5000/outputs?textID=';
+const url = 'http://54.180.87.156:5000/outputs?stock_code=';
+const url2 = 'http://54.180.87.156:5000/outputs_logo?stock_name=';
+const url3 = 'http://54.180.87.156:5000/outputs_pop?stock_code=';
 class Post extends React.Component {
   state = { isOpen: false };
 
@@ -21,7 +23,7 @@ class Post extends React.Component {
         <header>
           <div className="Post-user">
             <div className="Post-user-avatar">
-              <img src={ ss } alt={data.stock_name} />
+              <img src={ url2 + data.stock_name } alt={data.stock_name} />
             </div>
             <div className="Post-user-nickname">
               <span>{ data.stock_name }</span>
@@ -39,7 +41,7 @@ class Post extends React.Component {
             )} */}
             <Popup trigger={<img src= { url + data.stock_code }/>} position="right center">
               <div>
-              <img className="big" src= { url + data.stock_code }/>
+              <img className="big" src= { url3 + data.stock_code }/>
           <h1 className="stock-name">{ data.stock_name }</h1>
               </div>
             </Popup>
@@ -49,7 +51,10 @@ class Post extends React.Component {
           <strong>{ data.stock_name }</strong> { data.stock_code }
         </div>
       <div className="Post-caption-tag">
-      <Link to={`/search/${data.stock_sector}`}>#{ data.stock_sector }</Link>
+      <Link to={`/search/${data.stock_sector}`}>#{ data.stock_sector } </Link>
+      <Link to={`/search/${data.delta}`}>#{ data.delta } </Link>
+          <span>#{ data.price }원 </span>
+          <span>#{ data.date } </span>
       
       </div>
     </article>
