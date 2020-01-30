@@ -1,13 +1,17 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import "./Post.css";
-import sk from './SK.png';
-import lg from './LG.png';
 import ss from './삼성.jpg';
+import Popup from 'reactjs-popup';
 
 const url = 'http://54.180.87.156:5000/outputs?textID=';
 class Post extends React.Component {
+  state = { isOpen: false };
 
+  handleShowDialog = () => {
+    this.setState({ isOpen: !this.state.isOpen });
+    console.log('clicked');
+  };
   render() {
     const {dataInformation} = this.props;
     return (
@@ -26,7 +30,19 @@ class Post extends React.Component {
         </header>
         <div className="Post-image">
           <div className="Post-image-bg">
-            <img src= { url + data.stock_code } />
+            
+            {/* { this.state.isOpen && (
+              <dialog className="dialog" style={{ position: "absolute" }} open 
+              onClick={ this.handleShowDialog }>
+                <img className="image" src= { url + data.stock_code } onClick={ this.handleShowDialog }/>
+                </dialog>
+            )} */}
+            <Popup trigger={<img src= { url + data.stock_code }/>} position="right center">
+              <div>
+              <img className="big" src= { url + data.stock_code }/>
+          <h1 className="stock-name">{ data.stock_name }</h1>
+              </div>
+            </Popup>
           </div>
         </div>
         <div className="Post-caption">

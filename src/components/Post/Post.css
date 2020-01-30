@@ -61,3 +61,13 @@
     visibility: hidden;
     opacity: 0;
   }
+  .big {
+    width: 1000px !important;
+  }
+  .popup-content {
+    width: 1050px !important;
+    left: 450px !important;
+  }
+  .stock-name {
+    padding-left: 15px;
+  }

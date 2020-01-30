@@ -1,6 +1,6 @@
 import React from "react";
 import "./header.css";
-import logo from './kostagram.png';
+import logo from './kostagram.jpg';
 import Post from '../Post'
 
 const Nav_brand_logo = {
