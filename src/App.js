@@ -17,7 +17,6 @@ const formStyle = {
 
 function App() {
 
-
   const stockContext = useContext(StockContext);
   // const [user, setUser] = useState(null);
   // const authenticated = user != null;
