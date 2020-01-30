@@ -6,6 +6,7 @@ import Post from '../components/Post';
 import NoMatch from '../components/Post/NoMatch';
 import StockContext from '../context/StockContext';
 import './router.css';
+import full from '../components/Post/full.png';
 
 const App_main = {
     width: '70%',
@@ -65,8 +66,7 @@ function RootRouter() {
                             <option value='하락세'>하락세</option>
                             <option value='변동폭낮음'>변동폭낮음</option>
                         </select>
-
-                        
+                        <a href='/favorite'><img className='favorite' src={ full }/></a>
                     </div>
 
                     <Post dataInformation={stockContext.stockData.filter(data => {
@@ -82,6 +82,24 @@ function RootRouter() {
                 </Fragment>
                 </Route>
                 <Route path='/search/:tag' component={Tag} />
+                <Route path='/favorite'>
+                <Fragment>
+                <div>
+                    <div className = "App_main" style = { App_main }>
+                    <div><h2>.</h2></div><div><h1>.</h1></div>
+                    <h1 className="mid"> 즐겨찾기 </h1>
+                    <Post dataInformation={stockContext.stockData.filter(data => {
+                        // return data.nickname.indexOf(this.state.keyword) > -1
+                        return data.favorite.includes("1")
+                            // data.stock_sector.toLowerCase().includes(keyword.toLowerCase())
+                        // case-insensitive method
+                    })}/>
+                    </div>
+                </div>
+                    {/* <PostsForm /> */}
+                    {/* <Posts /> */}
+                </Fragment>
+                </Route>
                 <Route component={ NoMatch }/>
             </Switch>
         </Fragment>

@@ -83,3 +83,8 @@
     color: green;
     font-weight: bold;
   }
+  .heart {
+    width: 30px;
+    height: 30px;
+    float: right;
+  }

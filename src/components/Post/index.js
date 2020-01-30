@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import "./Post.css";
 import ss from './삼성.jpg';
 import Popup from 'reactjs-popup';
+import empty from './empty.png';
+import full from './full.png';
 
 const url = 'http://54.180.87.156:5000/outputs?stock_code=';
 const url2 = 'http://54.180.87.156:5000/outputs_logo?stock_name=';
@@ -29,13 +31,14 @@ class Post extends React.Component {
             <Popup trigger={<img src= { url + data.stock_code }/>} position="right center">
               <div>
               <img className="big" src= { url3 + data.stock_code }/>
-          <h1 className="stock-name">{ data.stock_name }</h1>
+              <h1 className="stock-name">{ data.stock_name }</h1>
               </div>
             </Popup>
           </div>
         </div>
         <div className="Post-caption">
           <strong>{ data.stock_name }</strong>({ data.stock_code })
+          { data.favorite === "0" ? <img className="heart" src={ empty }/> : <img className="heart" src={ full }/>} 
         </div>
       <div className="Post-caption-tag">
       <Link to={`/search/${data.stock_sector}`}><strong>#{ data.stock_sector }</strong> </Link>

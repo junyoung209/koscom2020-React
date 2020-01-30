@@ -41,3 +41,12 @@
 .select-css option {
     font-weight:normal;
 }
+.favorite {
+    margin-top: 20px;
+    margin-left:140px;
+    width: 30px;
+    height: 30px;
+}
+.mid {
+    text-align: center;
+}
