@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Post from '../components/Post';
 import NoMatch from '../components/Post/NoMatch';
 import StockContext from '../context/StockContext';
+import './router.css';
 
 const App_main = {
     width: '70%',
@@ -28,6 +29,14 @@ function RootRouter() {
         window.open('/search/'+e.target.value, '_self')
     }
 
+    const [sectors, setSectors] = useState([])
+
+    fetch('http://54.180.87.156:5000/sectors')
+      .then(res => res.json())
+      .then(res => setSectors(res))
+      .catch(error => {
+        console.log('error: ', error);
+    });
     return(
         // stockContext.stockData
         <Fragment>
@@ -46,20 +55,9 @@ function RootRouter() {
                         </input>
                         <br>
                         </br>
-                        <select value={sector} onChange={handlingSector}>
+                        <select className='select-css' value={sector} onChange={handlingSector}>
                         <option value="" disabled selected hidden>업종구분</option>
-                        <option value="금융업">금융업</option>
-                        <option value="운수창고">운수창고</option>
-                        <option value="보험업">보험업</option>
-                        {/* <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option> */}
+                            { sectors.map(sector => <option value={sector}>{ sector }</option>)}
                         </select>
 
                         
