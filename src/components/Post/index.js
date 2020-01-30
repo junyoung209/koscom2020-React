@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import "./Post.css";
+import sk from './SK.png';
+import lg from './LG.png';
+import ss from './삼성.jpg';
 
 const url = 'http://54.180.87.156:5000/outputs?textID=';
 class Post extends React.Component {
 
   render() {
     const {dataInformation} = this.props;
-    console.log('jubin: '+dataInformation);
     return (
       dataInformation.map(data=>{
     return (
@@ -15,7 +17,7 @@ class Post extends React.Component {
         <header>
           <div className="Post-user">
             <div className="Post-user-avatar">
-              <img src={ url + data.stock_code } alt={data.stock_name} />
+              <img src={ ss } alt={data.stock_name} />
             </div>
             <div className="Post-user-nickname">
               <span>{ data.stock_name }</span>

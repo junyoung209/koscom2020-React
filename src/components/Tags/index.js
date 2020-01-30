@@ -6,6 +6,7 @@ import StockContext from '../../context/StockContext';
 
 function Tag(props) {
     const stockContext = useContext(StockContext);
+    
     return (
         <Fragment>
                 <h2>Hi</h2><h2>Hi</h2>
