@@ -59,6 +59,12 @@ function RootRouter() {
                         <option value="" disabled selected hidden>업종구분</option>
                             { sectors.map(sector => <option value={sector}>{ sector }</option>)}
                         </select>
+                        <select className='select-css' value={sector} onChange={handlingSector}>
+                        <option value="" disabled selected hidden>변동추이</option>
+                            <option value='상승세'>상승세</option>
+                            <option value='하락세'>하락세</option>
+                            <option value='변동폭낮음'>변동폭낮음</option>
+                        </select>
 
                         
                     </div>

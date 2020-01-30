@@ -71,3 +71,15 @@
   .stock-name {
     padding-left: 15px;
   }
+  .up {
+    color: red;
+    font-weight: bold;
+  }
+  .down {
+    color: blue;
+    font-weight: bold;
+  }
+  .soso {
+    color: green;
+    font-weight: bold;
+  }

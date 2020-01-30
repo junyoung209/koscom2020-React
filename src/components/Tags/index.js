@@ -13,7 +13,7 @@ function Tag(props) {
             <div className="container">
                 <h2 className="tag">#{ props.match.params.tag }</h2>
             <div className="exBody">
-                { props.match.params.tag === '상승중' || props.match.params.tag === '하락중' ? 
+                { props.match.params.tag === '상승세' || props.match.params.tag === '하락세' || props.match.params.tag === '변동폭낮음' ? 
                 <List dataInformation={stockContext.stockData.filter(data => {
                     return data.delta.includes(props.match.params.tag)})}/> :
                     <List dataInformation={stockContext.stockData.filter(data => {

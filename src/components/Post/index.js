@@ -8,12 +8,6 @@ const url = 'http://54.180.87.156:5000/outputs?stock_code=';
 const url2 = 'http://54.180.87.156:5000/outputs_logo?stock_name=';
 const url3 = 'http://54.180.87.156:5000/outputs_pop?stock_code=';
 class Post extends React.Component {
-  state = { isOpen: false };
-
-  handleShowDialog = () => {
-    this.setState({ isOpen: !this.state.isOpen });
-    console.log('clicked');
-  };
   render() {
     const {dataInformation} = this.props;
     return (
@@ -32,13 +26,6 @@ class Post extends React.Component {
         </header>
         <div className="Post-image">
           <div className="Post-image-bg">
-            
-            {/* { this.state.isOpen && (
-              <dialog className="dialog" style={{ position: "absolute" }} open 
-              onClick={ this.handleShowDialog }>
-                <img className="image" src= { url + data.stock_code } onClick={ this.handleShowDialog }/>
-                </dialog>
-            )} */}
             <Popup trigger={<img src= { url + data.stock_code }/>} position="right center">
               <div>
               <img className="big" src= { url3 + data.stock_code }/>
@@ -48,40 +35,18 @@ class Post extends React.Component {
           </div>
         </div>
         <div className="Post-caption">
-          <strong>{ data.stock_name }</strong> { data.stock_code }
+          <strong>{ data.stock_name }</strong>({ data.stock_code })
         </div>
       <div className="Post-caption-tag">
-      <Link to={`/search/${data.stock_sector}`}>#{ data.stock_sector } </Link>
-      <Link to={`/search/${data.delta}`}>#{ data.delta } </Link>
-          <span>#{ data.price }원 </span>
-          <span>#{ data.date } </span>
+      <Link to={`/search/${data.stock_sector}`}><strong>#{ data.stock_sector }</strong> </Link>
+      <Link to={`/search/${data.delta}`}>
+        { data.delta === '상승세' ? <span className="up">#{ data.delta }</span> : 
+        data.delta === '하락세' ? <span className="down">#{ data.delta }</span> : <span className="soso">#{ data.delta }</span> }</Link>
+          <span><strong> #{ data.price }원</strong> </span>
+          <span><strong>#{ data.date }</strong> </span>
       
       </div>
     </article>
-    // <article className="Post" ref="Post">
-    //     <header>
-    //       <div className="Post-user">
-    //         <div className="Post-user-avatar">
-    //           <img src={ data.avatar } alt={data.nickname} />
-    //         </div>
-    //         <div className="Post-user-nickname">
-    //           <span>{ data.nickname }</span>
-    //         </div>
-    //       </div>
-    //     </header>
-    //     <div className="Post-image">
-    //       <div className="Post-image-bg">
-    //         <img src={ data.image } />
-    //       </div>
-    //     </div>
-    //     <div className="Post-caption">
-    //       <strong>{ data.nickname }</strong> { data.caption }
-    //     </div>
-    //   <div className="Post-caption-tag">
-    //   <Link to={`/search/${data.industry}`}>#{ data.industry }</Link>
-      
-    //   </div>
-    // </article>
     )}
     ))
     }

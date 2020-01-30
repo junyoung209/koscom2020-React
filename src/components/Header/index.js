@@ -18,11 +18,6 @@ class Header extends React.Component{
                <div className="Nav-brand">
                <a href="/"><img src={logo} style={Nav_brand_logo} alt="Logo" /></a>
                  <span className="search_bar">
-                   {/* <form> */}
-                  
-                    
-                      {/* <button onClick={this.OnShow}>button</button> */}
-                    {/* </form> */}
                   </span>
                </div>
              </div>

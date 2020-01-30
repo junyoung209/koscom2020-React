@@ -16,19 +16,7 @@ const formStyle = {
 }
 
 function App() {
-  // const [user, setUser] = useState([]);
   const stockContext = useContext(StockContext);
-  // const signIn = (username, password) => {
-  //   setUser([
-  //     user, {
-  //       username: username,
-  //       password: password
-  //     }
-  //   ])
-  // };
-  // const signOut = () => {
-  //   setUser(null)
-  // }
 
   useEffect(() => {
     console.log('stockContext: ', stockContext);
